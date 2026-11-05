@@ -15,7 +15,7 @@ const BAND = {
   // Vul de links in zodra ze er zijn. Leeg laten ('') = niet tonen.
   instagram: '',
   instagramNaam: '',
-  facebook: '',
+  facebook: 'https://www.facebook.com/carvemusic',
 };
 
 /* ---------------------------------------------------------
