@@ -13,8 +13,8 @@
 const BAND = {
   email: 'music.carve@gmail.com',
   // Vul de links in zodra ze er zijn. Leeg laten ('') = niet tonen.
-  instagram: '',
-  instagramNaam: '',
+  instagram: 'https://www.instagram.com/carve_music/',
+  instagramNaam: '@carve_music',
   facebook: 'https://www.facebook.com/carvemusic',
 };
 
