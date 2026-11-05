@@ -71,10 +71,10 @@ const VIDEOS = [
    Zet de foto's in de map "fotos" en noem ze hier.
    --------------------------------------------------------- */
 const FOTOS = [
-  { bestand: 'live-1.jpg', onderschrift: 'Live', onderschrift_en: 'Live' },
-  { bestand: 'live-2.jpg', onderschrift: 'Twee gitaren, één groove', onderschrift_en: 'Two guitars, one groove' },
-  { bestand: 'live-3.jpg', onderschrift: 'Sharon', onderschrift_en: 'Sharon' },
-  { bestand: 'live-4.jpg', onderschrift: 'Hans', onderschrift_en: 'Hans' },
+  { bestand: 'live-1.jpg', onderschrift: 'Altijd die energie', onderschrift_en: 'That energy, every time' },
+  { bestand: 'live-2.jpg', onderschrift: 'Gitaren op scherp', onderschrift_en: 'Guitars turned up' },
+  { bestand: 'live-3.jpg', onderschrift: 'Sharon geeft alles', onderschrift_en: 'Sharon gives it all' },
+  { bestand: 'live-4.jpg', onderschrift: 'Handen in de lucht', onderschrift_en: 'Hands in the air' },
 ];
 
 /* ---------------------------------------------------------

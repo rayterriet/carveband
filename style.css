@@ -190,7 +190,7 @@ figcaption { font-size: 15px; font-style: italic; margin-top: 8px; }
 .foto:hover { transform: rotate(0) scale(1.03); z-index: 2; }
 .foto button { padding: 0; border: 0; display: block; width: 100%; cursor: zoom-in; background: none; }
 .foto img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: sepia(.18) saturate(1.1) contrast(1.05); }
-.foto figcaption { color: var(--inkt); text-align: center; font-family: var(--kop); font-style: normal; font-size: 17px; margin: 6px 0 4px; }
+.foto figcaption { color: #2b2a6e; text-align: center; font: 600 24px/1.1 'Caveat', cursive; font-style: normal; margin: 8px 0 6px; rotate: -1.5deg; }
 
 /* Riders */
 .riders-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 6vw, 80px); align-items: start; }
