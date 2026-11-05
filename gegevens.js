@@ -84,10 +84,10 @@ const FOTOS = [
    Leeg laten ('') betekent: "op aanvraag".
    --------------------------------------------------------- */
 const RIDERS = [
-  { titel: 'Technische rider', titel_en: 'Technical rider',
-    omschrijving: 'Kanalenlijst, monitoring en backline (eigen XR18-mixer)', omschrijving_en: 'Input list, monitoring and backline (own XR18 mixer)', bestand: '' },
-  { titel: 'Stageplot', titel_en: 'Stage plot',
-    omschrijving: 'Opstelling van vijf muzikanten met Hammond', omschrijving_en: 'Five-piece layout including Hammond', bestand: '' },
+  { titel: 'Technische rider en stageplot', titel_en: 'Technical rider and stage plot',
+    omschrijving: 'Inputlijst (19 kanalen), monitors, backline, stroom en podiumopstelling. Versie september 2026.',
+    omschrijving_en: 'Input list (19 channels), monitors, backline, power and stage layout. Version September 2026 (Dutch).',
+    bestand: 'Carve-technische-rider-2026.pdf' },
   { titel: 'Hospitality rider', titel_en: 'Hospitality rider',
     omschrijving: 'Kleedkamer, catering en parkeren', omschrijving_en: 'Dressing room, catering and parking', bestand: '' },
 ];
