@@ -39,7 +39,7 @@ a { color: inherit; }
 }
 .balk-in { display: flex; align-items: center; gap: 20px; width: min(1120px, 100% - 32px); margin: auto; height: 64px; }
 .merk { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--kop); font-size: 24px; color: var(--goud-licht); }
-.merk img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.merk img { width: 36px; height: 36px; object-fit: contain; }
 nav { display: flex; gap: 22px; margin-left: auto; font-family: var(--label); text-transform: uppercase; letter-spacing: .12em; font-size: 14px; }
 nav a { text-decoration: none; color: var(--creme-2); padding: 6px 0; border-bottom: 2px solid transparent; }
 nav a:hover { color: var(--goud-licht); border-color: var(--goud); }
@@ -134,9 +134,9 @@ nav .nav-boek:hover { background: var(--goud-licht); color: var(--espresso); }
 }
 .vinyl::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 20deg, transparent 0 40deg, rgba(255, 255, 255, .09) 55deg, transparent 75deg 220deg, rgba(255, 255, 255, .06) 235deg, transparent 255deg); }
 .plaat:hover .vinyl { animation-play-state: running; }
-.etiket { width: 36%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 6px solid var(--oranje); position: relative; }
-.etiket img { width: 100%; height: 100%; object-fit: cover; }
-.etiket::after { content: ''; position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; translate: -50% -50%; border-radius: 50%; background: var(--creme); }
+.etiket { width: 36%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 6px solid var(--oranje); position: relative; background: radial-gradient(circle, var(--bordeaux), #4f160f); display: grid; place-items: center; }
+.etiket img { width: 74%; height: 74%; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .5)); }
+.etiket::after { content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; translate: -50% -50%; border-radius: 50%; background: var(--espresso); box-shadow: 0 0 0 2px var(--goud); }
 .tracks { list-style: none; padding: 0; margin: 0; border-top: 3px double var(--bordeaux); }
 .track { display: flex; align-items: baseline; gap: 16px; padding: 12px 2px; border-bottom: 1px dotted rgba(122, 35, 24, .5); }
 .track-nr { font: 600 14px var(--label); letter-spacing: .1em; color: var(--oranje); width: 30px; }
