@@ -118,7 +118,7 @@ nav .nav-boek:hover { background: var(--goud-licht); color: var(--espresso); }
 /* Band */
 /* Band als vintage concertaffiche */
 .affiche {
-  position: relative; max-width: 720px; margin: 40px auto 0; padding: 16px 16px 26px;
+  position: relative; max-width: 760px; margin: 40px auto 0; padding: 16px 16px 26px;
   background: var(--creme); color: var(--inkt); text-align: center;
   box-shadow: 0 26px 50px rgba(0, 0, 0, .55); rotate: -1.2deg;
   outline: 2px solid var(--bordeaux); outline-offset: -8px;
@@ -126,14 +126,23 @@ nav .nav-boek:hover { background: var(--goud-licht); color: var(--espresso); }
 .affiche::after { content: ''; position: absolute; inset: 0; background: var(--korrel); opacity: .4; mix-blend-mode: multiply; pointer-events: none; }
 .affiche-kop { margin: 0 0 18px; padding: 16px 10px 14px; background: var(--bordeaux); color: var(--goud-licht); font: 600 15px var(--label); letter-spacing: .4em; text-transform: uppercase; }
 .leden { list-style: none; margin: 0; padding: 0 clamp(16px, 5vw, 48px); }
-.lid { display: flex; flex-direction: column; align-items: center; padding: 10px 0 12px; }
+.lid { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: clamp(14px, 3vw, 28px); padding: 14px 0; text-align: left; }
+.lid:nth-child(even) { grid-template-columns: 1fr auto; text-align: right; }
+.lid:nth-child(even) .lid-foto { order: 2; }
+.lid-tekst { display: flex; flex-direction: column; }
+.lid:nth-child(even) .lid-tekst { align-items: flex-end; }
+.lid:nth-child(odd) .lid-tekst { align-items: flex-start; }
 .lid + .lid { border-top: 1px solid rgba(122, 35, 24, .35); }
 .lid-naam { font: 400 clamp(38px, 6vw, 58px)/1 var(--kop); color: var(--inkt); }
 .lid:first-child .lid-naam { font-size: clamp(56px, 10vw, 92px); color: var(--oranje); }
 .lid:nth-child(even) .lid-naam { color: var(--bordeaux); }
 .lid-rol { font: 600 13px var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--inkt); margin-top: 6px; }
-.lid-rol::before, .lid-rol::after { content: '★'; color: var(--oranje); margin: 0 .7em; letter-spacing: 0; font-size: .85em; }
-.lid-foto { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; border: 3px solid var(--bordeaux); filter: sepia(.3); }
+.lid-rol::before { content: '★'; color: var(--oranje); margin-right: .6em; letter-spacing: 0; font-size: .85em; }
+.lid:nth-child(even) .lid-rol::before { content: none; }
+.lid:nth-child(even) .lid-rol::after { content: '★'; color: var(--oranje); margin-left: .6em; letter-spacing: 0; font-size: .85em; }
+.lid-foto { width: clamp(96px, 18vw, 130px); aspect-ratio: 1; object-fit: cover; border: 5px solid #fff8ea; outline: 1px solid rgba(122, 35, 24, .5); box-shadow: 0 6px 14px rgba(42, 28, 18, .35); rotate: -2deg; filter: grayscale(1) contrast(1.05); }
+.lid:nth-child(even) .lid-foto { rotate: 2deg; }
+.lid:first-child .lid-foto { width: clamp(120px, 24vw, 170px); }
 .affiche-voet { margin: 18px 0 0; font: 500 13px var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--bordeaux); display: flex; justify-content: center; gap: 12px; }
 .affiche-voet i { font-style: normal; color: var(--oranje); }
 

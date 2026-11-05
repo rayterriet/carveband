@@ -132,11 +132,13 @@
       var li = el('li', 'lid');
       if (l.foto) {
         var img = el('img', 'lid-foto');
-        img.src = 'fotos/' + l.foto; img.alt = ''; img.loading = 'lazy';
+        img.src = 'fotos/' + l.foto; img.alt = l.naam; img.loading = 'lazy';
         li.appendChild(img);
       }
-      li.appendChild(el('span', 'lid-naam', l.naam));
-      if (l.rol) li.appendChild(el('span', 'lid-rol', V(l, 'rol')));
+      var tekst = el('div', 'lid-tekst');
+      tekst.appendChild(el('span', 'lid-naam', l.naam));
+      if (l.rol) tekst.appendChild(el('span', 'lid-rol', V(l, 'rol')));
+      li.appendChild(tekst);
       $('leden').appendChild(li);
     });
   }

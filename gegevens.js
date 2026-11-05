@@ -24,11 +24,11 @@ const BAND = {
    en vul de bestandsnaam in, bijvoorbeeld foto: 'sharon.jpg'
    --------------------------------------------------------- */
 const LEDEN = [
-  { naam: 'Sharon', rol: 'Zang', rol_en: 'Vocals' },
-  { naam: 'Ray', rol: 'Gitaar & Hammond', rol_en: 'Guitar & Hammond' },
-  { naam: 'Wouter', rol: 'Gitaar', rol_en: 'Guitar' },
-  { naam: 'Frans', rol: 'Bas', rol_en: 'Bass' },
-  { naam: 'Hans', rol: 'Drums', rol_en: 'Drums' },
+  { naam: 'Sharon', foto: 'portret-sharon.jpg', rol: 'Zang', rol_en: 'Vocals' },
+  { naam: 'Ray', foto: 'portret-ray.jpg', rol: 'Gitaar & Hammond', rol_en: 'Guitar & Hammond' },
+  { naam: 'Wouter', foto: 'portret-wouter.jpg', rol: 'Gitaar', rol_en: 'Guitar' },
+  { naam: 'Frans', foto: 'portret-frans.jpg', rol: 'Bas', rol_en: 'Bass' },
+  { naam: 'Hans', foto: 'portret-hans.jpg', rol: 'Drums', rol_en: 'Drums' },
 ];
 
 /* ---------------------------------------------------------
@@ -79,7 +79,7 @@ const FOTOS = [
   { bestand: 'podium-groen.jpg', vorm: 'groot' },
   { bestand: 'sharon-blauw.jpg', vorm: 'normaal' },
   { bestand: 'wouter.jpg', vorm: 'hoog' },
-  { bestand: 'hans-drums.jpg', vorm: 'normaal' },
+  { bestand: 'frans-ray.jpg', vorm: 'normaal' },
   { bestand: 'sharon-vuist.jpg', vorm: 'normaal' },
   { bestand: 'ray-gitaar-toetsen.jpg', vorm: 'normaal' },
   { bestand: 'lichtshow.jpg', vorm: 'breed' },
