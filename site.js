@@ -254,9 +254,9 @@
       var fig = el('figure', 'foto');
       var b = el('button');
       b.type = 'button';
-      b.setAttribute('aria-label', T('fotos.vergroot') + (onder || f.bestand));
+      b.setAttribute('aria-label', T('fotos.vergroot') + (onder || 'Carve live'));
       var img = el('img');
-      img.src = 'fotos/' + f.bestand; img.alt = onder; img.loading = 'lazy';
+      img.src = 'fotos/' + f.bestand; img.alt = onder || 'Carve live'; img.loading = 'lazy';
       b.appendChild(img);
       b.addEventListener('click', function () { toon(img.src, img.alt, onder); });
       fig.appendChild(b);
