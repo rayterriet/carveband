@@ -67,15 +67,32 @@ const VIDEOS = [
 ];
 
 /* ---------------------------------------------------------
-   FOTO'S
-   Zet de foto's in de map "fotos" en noem ze hier.
+   FOTO'S (collage)
+   Zet de foto's in de map "fotos" en noem ze hier, in de volgorde
+   waarin ze in de collage moeten staan.
+   vorm (mag je weglaten): 'groot' (2x2 vakken), 'breed' (2x1),
+   'hoog' (1x2) of 'normaal'. Liggende foto's werken het best als
+   'breed' of 'groot', staande foto's als 'hoog'.
+   onderschrift (mag je weglaten): tekst die bij het vergroten verschijnt.
    --------------------------------------------------------- */
 const FOTOS = [
-  // onderschrift (mag je weglaten): tekst onder de foto, bijvoorbeeld onderschrift: 'Live in Apeldoorn'
-  { bestand: 'live-1.jpg' },
-  { bestand: 'live-2.jpg' },
-  { bestand: 'live-3.jpg' },
-  { bestand: 'live-4.jpg' },
+  { bestand: 'podium-groen.jpg', vorm: 'groot' },
+  { bestand: 'sharon-blauw.jpg', vorm: 'normaal' },
+  { bestand: 'wouter.jpg', vorm: 'hoog' },
+  { bestand: 'hans-drums.jpg', vorm: 'normaal' },
+  { bestand: 'sharon-vuist.jpg', vorm: 'normaal' },
+  { bestand: 'ray-gitaar-toetsen.jpg', vorm: 'normaal' },
+  { bestand: 'lichtshow.jpg', vorm: 'breed' },
+  { bestand: 'frans-bas.jpg', vorm: 'normaal' },
+  { bestand: 'sharon-portret.jpg', vorm: 'hoog' },
+  { bestand: 'wouter-sharon.jpg', vorm: 'breed' },
+  { bestand: 'podium-rood.jpg', vorm: 'breed' },
+  { bestand: 'sharon-gitaar.jpg', vorm: 'normaal' },
+  { bestand: 'publiek.jpg', vorm: 'normaal' },
+  { bestand: 'gitaar-rood.jpg', vorm: 'hoog' },
+  { bestand: 'sharon-oranje.jpg', vorm: 'groot' },
+  { bestand: 'drie-gitaren.jpg', vorm: 'normaal' },
+  { bestand: 'band-roze.jpg', vorm: 'breed' },
 ];
 
 /* ---------------------------------------------------------

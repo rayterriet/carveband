@@ -49,7 +49,7 @@
       'video.kop': 'Op beeld',
       'video.leeg': 'De eerste beelden van het nieuwe werk komen hier te staan.',
       'video.speel': 'Speel video af: ',
-      'fotos.label': "Foto's", 'fotos.kop': 'Op het podium', 'fotos.vergroot': 'Vergroot: ',
+      'fotos.label': "Foto's", 'fotos.kop': 'Op het podium', 'fotos.vergroot': 'Vergroot: ', 'vorige': 'Vorige foto', 'volgende': 'Volgende foto',
       'riders.kop': 'Voor organisatoren',
       'riders.intro': 'Voor organisatoren en technici. Staat er iets niet bij of heb je een vraag over de techniek? Mail ons gerust.',
       'riders.download': 'Download PDF', 'riders.aanvraag': 'Op aanvraag',
@@ -87,7 +87,7 @@
       'video.kop': 'On screen',
       'video.leeg': 'The first footage of the new songs will appear here.',
       'video.speel': 'Play video: ',
-      'fotos.label': 'Photos', 'fotos.kop': 'On stage', 'fotos.vergroot': 'Enlarge: ',
+      'fotos.label': 'Photos', 'fotos.kop': 'On stage', 'fotos.vergroot': 'Enlarge: ', 'vorige': 'Previous photo', 'volgende': 'Next photo',
       'riders.kop': 'For promoters',
       'riders.intro': 'For promoters and technicians. Missing something, or got a question about the tech? Just drop us a line.',
       'riders.download': 'Download PDF', 'riders.aanvraag': 'On request',
@@ -241,29 +241,43 @@
 
   /* ---------- Foto's ---------- */
   var lb = $('lichtbak');
-  function toon(src, alt, tekst) {
-    $('lichtbak-img').src = src; $('lichtbak-img').alt = alt || '';
-    $('lichtbak-tekst').textContent = tekst || '';
-    if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+  var lijstFotos = [], huidige = 0;
+  function toonNr(i) {
+    if (!lijstFotos.length) return;
+    huidige = (i + lijstFotos.length) % lijstFotos.length;
+    var f = lijstFotos[huidige];
+    $('lichtbak-img').src = f.src; $('lichtbak-img').alt = f.alt;
+    $('lichtbak-tekst').textContent = f.tekst;
+    $('lichtbak-tel').textContent = (huidige + 1) + ' / ' + lijstFotos.length;
+    if (!lb.open) { if (lb.showModal) lb.showModal(); else lb.setAttribute('open', ''); }
   }
   function fotos() {
-    $('foto-grid').replaceChildren();
+    $('foto-grid').replaceChildren(); lijstFotos = [];
     lijst('FOTOS').forEach(function (f) {
       if (!f || !f.bestand) return;
       var onder = V(f, 'onderschrift') || '';
-      var fig = el('figure', 'foto');
+      var nr = lijstFotos.length;
+      var src = 'fotos/' + f.bestand;
+      lijstFotos.push({ src: src, alt: onder || 'Carve live', tekst: onder });
+      var fig = el('figure', 'foto foto-' + (f.vorm || 'normaal'));
       var b = el('button');
       b.type = 'button';
-      b.setAttribute('aria-label', T('fotos.vergroot') + (onder || 'Carve live'));
+      b.setAttribute('aria-label', T('fotos.vergroot') + (onder || 'Carve live ' + (nr + 1)));
       var img = el('img');
-      img.src = 'fotos/' + f.bestand; img.alt = onder || 'Carve live'; img.loading = 'lazy';
+      img.src = src; img.alt = onder || 'Carve live'; img.loading = 'lazy'; img.decoding = 'async';
       b.appendChild(img);
-      b.addEventListener('click', function () { toon(img.src, img.alt, onder); });
+      b.addEventListener('click', function () { toonNr(nr); });
       fig.appendChild(b);
-      if (onder) fig.appendChild(el('figcaption', null, onder));
       $('foto-grid').appendChild(fig);
     });
   }
+  $('lb-vorige').addEventListener('click', function () { toonNr(huidige - 1); });
+  $('lb-volgende').addEventListener('click', function () { toonNr(huidige + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.open) return;
+    if (e.key === 'ArrowLeft') toonNr(huidige - 1);
+    if (e.key === 'ArrowRight') toonNr(huidige + 1);
+  });
   $('sluit').addEventListener('click', function () { lb.close ? lb.close() : lb.removeAttribute('open'); });
   lb.addEventListener('click', function (e) { if (e.target === lb && lb.close) lb.close(); });
 
