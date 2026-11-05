@@ -37,7 +37,7 @@
       'verhaal.p1': 'Carve bestaat bijna twintig jaar en maakte in die tijd heel wat gedaantewisselingen door. Begonnen als rockband, later opgeschoven richting soul en funk. Waar we ook speelden, we hoorden steeds hetzelfde: de energie op het podium is de kracht van de band. Als coverband eindigden we ooit als tweede in de finale van The Battle of the Coverbands in de Melkweg in Amsterdam.',
       'verhaal.p2': 'Vijf jaar geleden begon een nieuw hoofdstuk met zangeres Sharon. Begin 2026 kozen we bewust voor een nieuwe richting: een repertoire met vooral eigen nummers, afgewisseld met een paar zorgvuldig gekozen covers.',
       'verhaal.p3': 'In intiemere settings spelen we de oude rocknummers akoestisch.',
-      'band.label': 'De band', 'band.kop': 'Vijf muzikanten, één groove',
+      'band.label': 'De band', 'band.kop': 'Vijf muzikanten, één groove', 'band.affiche': 'Live op het podium',
       'muziek.label': 'Eigen werk', 'muziek.kop': 'Nieuw repertoire',
       'muziek.intro': 'Onze eigen nummers, binnenkort live te horen. Hier een eerste blik op de tracklist.',
       'kant': 'Kant',
@@ -75,7 +75,7 @@
       'verhaal.p1': 'Carve has been around for almost twenty years and has changed shape more than once. We started out as a rock band and later moved towards soul and funk. Wherever we played, people told us the same thing: the energy on stage is what makes this band. As a cover band we once finished second in the final of The Battle of the Coverbands at the Melkweg in Amsterdam.',
       'verhaal.p2': 'Five years ago a new chapter began with singer Sharon. In early 2026 we deliberately chose a new direction: a set of mostly original songs, mixed with a few carefully chosen covers.',
       'verhaal.p3': 'In more intimate settings we play the old rock songs acoustically.',
-      'band.label': 'The band', 'band.kop': 'Five musicians, one groove',
+      'band.label': 'The band', 'band.kop': 'Five musicians, one groove', 'band.affiche': 'Live on stage',
       'muziek.label': 'Original songs', 'muziek.kop': 'New repertoire',
       'muziek.intro': 'Our own songs, coming soon to a stage near you. A first look at the track list.',
       'kant': 'Side',
@@ -132,15 +132,11 @@
       var li = el('li', 'lid');
       if (l.foto) {
         var img = el('img', 'lid-foto');
-        img.src = 'fotos/' + l.foto; img.alt = l.naam; img.loading = 'lazy';
+        img.src = 'fotos/' + l.foto; img.alt = ''; img.loading = 'lazy';
         li.appendChild(img);
-      } else {
-        var m = el('span', 'lid-munt', l.naam.charAt(0));
-        m.setAttribute('aria-hidden', 'true');
-        li.appendChild(m);
       }
-      li.appendChild(el('h3', 'lid-naam', l.naam));
-      if (l.rol) li.appendChild(el('p', 'lid-rol', V(l, 'rol')));
+      li.appendChild(el('span', 'lid-naam', l.naam));
+      if (l.rol) li.appendChild(el('span', 'lid-rol', V(l, 'rol')));
       $('leden').appendChild(li);
     });
   }

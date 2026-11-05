@@ -116,12 +116,26 @@ nav .nav-boek:hover { background: var(--goud-licht); color: var(--espresso); }
 .verhaal-tekst p:first-child::first-letter { font-family: var(--kop); float: left; font-size: 4.2em; line-height: .82; margin: 6px 10px 0 0; color: var(--oranje); }
 
 /* Band */
-.leden { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; }
-.lid { text-align: center; padding: 28px 14px 24px; border: 1px solid rgba(217, 166, 58, .35); border-radius: 18px; background: linear-gradient(180deg, rgba(255, 255, 255, .03), transparent); }
-.lid-munt, .lid-foto { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px; display: grid; place-items: center; object-fit: cover; }
-.lid-munt { font: 400 46px var(--kop); color: var(--espresso); background: radial-gradient(circle at 35% 30%, var(--goud-licht), var(--goud) 55%, #8c6420); box-shadow: inset 0 -4px 8px rgba(0, 0, 0, .3), 0 6px 16px rgba(0, 0, 0, .4); }
-.lid-naam { font: 400 28px var(--kop); margin: 0; color: var(--creme); }
-.lid-rol { font: 500 13px var(--label); letter-spacing: .18em; text-transform: uppercase; color: var(--goud); margin: 6px 0 0; }
+/* Band als vintage concertaffiche */
+.affiche {
+  position: relative; max-width: 720px; margin: 40px auto 0; padding: 16px 16px 26px;
+  background: var(--creme); color: var(--inkt); text-align: center;
+  box-shadow: 0 26px 50px rgba(0, 0, 0, .55); rotate: -1.2deg;
+  outline: 2px solid var(--bordeaux); outline-offset: -8px;
+}
+.affiche::after { content: ''; position: absolute; inset: 0; background: var(--korrel); opacity: .4; mix-blend-mode: multiply; pointer-events: none; }
+.affiche-kop { margin: 0 0 18px; padding: 16px 10px 14px; background: var(--bordeaux); color: var(--goud-licht); font: 600 15px var(--label); letter-spacing: .4em; text-transform: uppercase; }
+.leden { list-style: none; margin: 0; padding: 0 clamp(16px, 5vw, 48px); }
+.lid { display: flex; flex-direction: column; align-items: center; padding: 10px 0 12px; }
+.lid + .lid { border-top: 1px solid rgba(122, 35, 24, .35); }
+.lid-naam { font: 400 clamp(38px, 6vw, 58px)/1 var(--kop); color: var(--inkt); }
+.lid:first-child .lid-naam { font-size: clamp(56px, 10vw, 92px); color: var(--oranje); }
+.lid:nth-child(even) .lid-naam { color: var(--bordeaux); }
+.lid-rol { font: 600 13px var(--label); letter-spacing: .32em; text-transform: uppercase; color: var(--inkt); margin-top: 6px; }
+.lid-rol::before, .lid-rol::after { content: '★'; color: var(--oranje); margin: 0 .7em; letter-spacing: 0; font-size: .85em; }
+.lid-foto { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; border: 3px solid var(--bordeaux); filter: sepia(.3); }
+.affiche-voet { margin: 18px 0 0; font: 500 13px var(--label); letter-spacing: .3em; text-transform: uppercase; color: var(--bordeaux); display: flex; justify-content: center; gap: 12px; }
+.affiche-voet i { font-style: normal; color: var(--oranje); }
 
 /* Muziek: plaat en hoes */
 .muziek-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px, 6vw, 80px); align-items: center; }
@@ -223,3 +237,5 @@ figcaption { font-size: 15px; font-style: italic; margin-top: 8px; }
   .gig-datum { width: 58px; height: 58px; }
   .gig-actie { grid-column: 2; justify-content: flex-start; }
 }
+
+#band .label, #band .kop { text-align: center; }
