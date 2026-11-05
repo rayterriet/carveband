@@ -67,15 +67,15 @@ const VIDEOS = [
 ];
 
 /* ---------------------------------------------------------
-   FOTO'S (collage)
-   Zet de foto's in de map "fotos" en noem ze hier, in de volgorde
-   waarin ze in de collage moeten staan.
-   vorm (mag je weglaten): 'groot' (2x2 vakken), 'breed' (2x1),
-   'hoog' (1x2) of 'normaal'. Liggende foto's werken het best als
-   'breed' of 'groot', staande foto's als 'hoog'.
+   FOTO'S (filmstrook die steeds doordraait)
+   Zet de foto's in de map "fotos" en noem ze hier. De foto's worden
+   om en om over de bovenste en onderste strook verdeeld.
+   vorm: 'hoog' voor staande foto's, anders liggend
+   ('breed', 'groot' of 'normaal' zijn allemaal liggend).
    onderschrift (mag je weglaten): tekst die bij het vergroten verschijnt.
    --------------------------------------------------------- */
 const FOTOS = [
+  { bestand: 'band-live.jpg', vorm: 'breed' },
   { bestand: 'podium-groen.jpg', vorm: 'groot' },
   { bestand: 'sharon-blauw.jpg', vorm: 'normaal' },
   { bestand: 'wouter.jpg', vorm: 'hoog' },

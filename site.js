@@ -254,23 +254,37 @@
     if (!lb.open) { if (lb.showModal) lb.showModal(); else lb.setAttribute('open', ''); }
   }
   function fotos() {
-    $('foto-grid').replaceChildren(); lijstFotos = [];
-    lijst('FOTOS').forEach(function (f) {
-      if (!f || !f.bestand) return;
+    var grid = $('foto-grid');
+    grid.replaceChildren(); lijstFotos = [];
+    var items = lijst('FOTOS').filter(function (f) { return f && f.bestand; });
+    var rijen = [[], []];
+    items.forEach(function (f, i) {
       var onder = V(f, 'onderschrift') || '';
-      var nr = lijstFotos.length;
-      var src = 'fotos/' + f.bestand;
-      lijstFotos.push({ src: src, alt: onder || 'Carve live', tekst: onder });
-      var fig = el('figure', 'foto foto-' + (f.vorm || 'normaal'));
-      var b = el('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', T('fotos.vergroot') + (onder || 'Carve live ' + (nr + 1)));
-      var img = el('img');
-      img.src = src; img.alt = onder || 'Carve live'; img.loading = 'lazy'; img.decoding = 'async';
-      b.appendChild(img);
-      b.addEventListener('click', function () { toonNr(nr); });
-      fig.appendChild(b);
-      $('foto-grid').appendChild(fig);
+      lijstFotos.push({ src: 'fotos/' + f.bestand, alt: onder || 'Carve live', tekst: onder, hoog: f.vorm === 'hoog' });
+      rijen[i % 2].push(i);
+    });
+    rijen.forEach(function (rij, r) {
+      if (!rij.length) return;
+      var strook = el('div', 'strook' + (r ? ' strook-terug' : ''));
+      var baan = el('div', 'baan');
+      // twee keer achter elkaar, zodat de strook naadloos doorloopt
+      [0, 1].forEach(function (kopie) {
+        rij.forEach(function (nr) {
+          var f = lijstFotos[nr];
+          var b = el('button', 'beeldje' + (f.hoog ? ' beeldje-hoog' : ''));
+          b.type = 'button';
+          if (kopie) { b.tabIndex = -1; b.setAttribute('aria-hidden', 'true'); }
+          b.setAttribute('aria-label', T('fotos.vergroot') + (f.tekst || 'Carve live ' + (nr + 1)));
+          var img = el('img');
+          img.src = f.src; img.alt = kopie ? '' : f.alt; img.loading = 'lazy'; img.decoding = 'async';
+          b.appendChild(img);
+          b.addEventListener('click', function () { toonNr(nr); });
+          baan.appendChild(b);
+        });
+      });
+      baan.style.animationDuration = (rij.length * 5) + 's';
+      strook.appendChild(baan);
+      grid.appendChild(strook);
     });
   }
   $('lb-vorige').addEventListener('click', function () { toonNr(huidige - 1); });
