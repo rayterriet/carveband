@@ -42,7 +42,7 @@ const NUMMERS = [
   'Blood and Wire',
   'Writing Tears',
   'Sunshine',
-  'A Soul Full of Blues',
+  { titel: 'A Soul Full of Blues', audio: 'a-soul-full-of-blues-demo-v1.mp3' },
   { titel: 'Crossing Borders', audio: 'crossing-borders-demo-v4.mp3' },
 ];
 
