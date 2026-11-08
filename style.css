@@ -164,6 +164,20 @@ nav .nav-boek:hover { background: var(--goud-licht); color: var(--espresso); }
 .track { display: flex; align-items: baseline; gap: 16px; padding: 12px 2px; border-bottom: 1px dotted rgba(122, 35, 24, .5); }
 .track-nr { font: 600 14px var(--label); letter-spacing: .1em; color: var(--oranje); width: 30px; }
 .track-titel { font: 400 22px var(--kop); color: var(--inkt); }
+.track.met-audio { position: relative; align-items: center; }
+.track-demo { margin-left: auto; font: 600 11px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--bordeaux); }
+.track-speel {
+  flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer; position: relative;
+  background: var(--bordeaux); color: var(--creme); box-shadow: 0 3px 8px rgba(42, 28, 18, .3);
+  transition: background .2s, transform .15s;
+}
+.track-speel::before { content: ''; position: absolute; left: 50%; top: 50%; translate: -38% -50%; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent currentColor; }
+.track-speel.speelt::before { translate: -50% -50%; width: 12px; height: 15px; border: 0; border-left: 4px solid currentColor; border-right: 4px solid currentColor; }
+.track-speel:hover { background: var(--oranje); transform: scale(1.06); }
+.track-speel:focus-visible { outline: 2px solid var(--oranje); outline-offset: 3px; }
+.track-balk { position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--oranje); transition: width .25s linear; }
+.track.speelt .track-titel { color: var(--bordeaux); }
+.plaat.speelt .vinyl { animation-play-state: running; }
 
 /* Optredens */
 .gigs { list-style: none; padding: 0; margin: 24px 0 0; }

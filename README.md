@@ -10,6 +10,7 @@ Op GitHub: open `gegevens.js`, klik op het potloodje, pas iets aan en klik op **
 
 - **Optreden toevoegen:** zet een regel in `TOUR`, met de datum als `'JJJJ-MM-DD'`. Optredens in het verleden verhuizen vanzelf naar "Eerder gespeeld". Met `akoestisch: true` krijgt een optreden het label "Akoestisch". Met `fotoboek: '<id>'` komt er een knop naar het fotoboekje bij.
 - **Nummer toevoegen of weghalen:** pas de lijst `NUMMERS` aan. De site verdeelt de nummers zelf over kant A en kant B.
+- **Demo bij een nummer:** zet de mp3 in de map `audio` en schrijf het nummer in `NUMMERS` als `{ titel: 'Naam', audio: 'bestand.mp3' }`. Er verschijnt dan een afspeelknop, en de plaat draait mee zolang de demo speelt. Gebruik mp3 (ca. 192 kbps), geen wav: dat laadt veel sneller.
 - **Video toevoegen:** neem het id uit de YouTube-link (het stukje na `v=`).
 - **Foto's:** zet ze in de map `fotos` en noem ze in `FOTOS`.
 - **Fotoboekje toevoegen:** maak een map onder `fotoboek`, bijvoorbeeld `fotoboek/deventer-2027-03-20/`, met de foto's erin en dezelfde foto's kleiner (ca. 700 px) in de submap `klein`. Zet daarna een blokje in `FOTOBOEKEN`. Het fotoboekje verschijnt vanzelf onder de foto's op de hoofdpagina en heeft een eigen pagina: `fotoboek.html?boek=<id>`.
@@ -30,6 +31,7 @@ Bezoekers kunnen een oude versie even in hun browser bewaren. Wil je dat een wij
 | `style.css` | Vormgeving |
 | `img/` | Logo, embleem, speakerdoek en deelbeeld |
 | `fotos/` | Livefoto's |
+| `audio/` | Demo's (mp3) |
 | `fotoboek.html`, `fotoboek.js` | Pagina voor de fotoboekjes |
 | `fotoboek/` | Foto's per fotoboekje |
 | `robots.txt`, `sitemap.xml` | Voor zoekmachines |

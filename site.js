@@ -32,6 +32,7 @@
       'hero.rock': 'een vleugje Rock',
       'hero.intro': 'Bijna twintig jaar podiumenergie, nu met een eigen geluid. Vijf muzikanten uit rock, punk, blues, soul en pop vinden elkaar op het snijvlak van soul, blues en een vleugje rock.',
       'hero.boek': 'Boek Carve', 'hero.muziek': 'Nieuw werk',
+      'demo.label': 'Demo', 'demo.speel': 'Speel demo', 'demo.pauze': 'Pauzeer demo',
       'volgende': 'Eerstvolgende',
       'verhaal.label': 'Ons verhaal',
       'verhaal.kop': "Nieuw geluid, dezelfde energie",
@@ -71,6 +72,7 @@
       'hero.rock': 'a touch of Rock',
       'hero.intro': 'Almost twenty years of stage energy, now with a sound of our own. Five musicians from rock, punk, blues, soul and pop meet where soul, blues and a touch of rock collide.',
       'hero.boek': 'Book Carve', 'hero.muziek': 'New songs',
+      'demo.label': 'Demo', 'demo.speel': 'Play demo', 'demo.pauze': 'Pause demo',
       'volgende': 'Next up',
       'verhaal.label': 'Our story',
       'verhaal.kop': "A new sound, the same energy",
@@ -147,18 +149,74 @@
   }
 
   /* ---------- Nummers ---------- */
+  var speler = null, spelerBestand = null;
+  function knopStand(knop, rij) {
+    var speelt = speler && !speler.paused && knop.dataset.audio === spelerBestand;
+    knop.classList.toggle('speelt', !!speelt);
+    rij.classList.toggle('speelt', !!speelt);
+    knop.setAttribute('aria-pressed', speelt ? 'true' : 'false');
+    knop.setAttribute('aria-label', (speelt ? T('demo.pauze') : T('demo.speel')) + ': ' + knop.dataset.titel);
+  }
+  function alleKnoppen() {
+    var iets = false;
+    document.querySelectorAll('.track-speel').forEach(function (k) {
+      knopStand(k, k.closest('.track'));
+      if (k.classList.contains('speelt')) iets = true;
+    });
+    var plaat = document.querySelector('.plaat');
+    if (plaat) plaat.classList.toggle('speelt', iets);
+  }
+  function voortgang() {
+    if (!speler) return;
+    var pct = speler.duration ? (speler.currentTime / speler.duration) * 100 : 0;
+    document.querySelectorAll('.track-balk').forEach(function (b) {
+      b.style.width = (b.dataset.audio === spelerBestand ? pct : 0) + '%';
+    });
+  }
+  function speel(bestand) {
+    if (!speler) {
+      speler = new Audio();
+      speler.preload = 'none';
+      ['play', 'pause', 'ended'].forEach(function (e) { speler.addEventListener(e, alleKnoppen); });
+      speler.addEventListener('timeupdate', voortgang);
+      speler.addEventListener('ended', function () { speler.currentTime = 0; voortgang(); });
+    }
+    if (spelerBestand !== bestand) {
+      spelerBestand = bestand;
+      speler.src = 'audio/' + bestand;
+      voortgang();
+    }
+    if (speler.paused) speler.play().catch(function () {}); else speler.pause();
+  }
   function nummers() {
     $('tracks').replaceChildren();
-    var n = lijst('NUMMERS').filter(Boolean);
+    var n = lijst('NUMMERS').filter(Boolean).map(function (x) {
+      return typeof x === 'string' ? { titel: x } : x;
+    });
     var helft = Math.ceil(n.length / 2);
-    n.forEach(function (titel, i) {
+    n.forEach(function (nr_, i) {
       var li = el('li', 'track');
       var kant = i < helft ? 'A' : 'B';
       var nr = i < helft ? i + 1 : i - helft + 1;
       li.appendChild(el('span', 'track-nr', kant + nr));
-      li.appendChild(el('span', 'track-titel', titel));
+      li.appendChild(el('span', 'track-titel', V(nr_, 'titel')));
+      if (nr_.audio) {
+        li.classList.add('met-audio');
+        li.appendChild(el('span', 'track-demo', T('demo.label')));
+        var knop = el('button', 'track-speel');
+        knop.type = 'button';
+        knop.dataset.audio = nr_.audio;
+        knop.dataset.titel = V(nr_, 'titel');
+        knop.addEventListener('click', function () { speel(nr_.audio); });
+        li.appendChild(knop);
+        var balk = el('span', 'track-balk');
+        balk.dataset.audio = nr_.audio;
+        li.appendChild(balk);
+      }
       $('tracks').appendChild(li);
     });
+    alleKnoppen();
+    voortgang();
   }
 
   /* ---------- Optredens ---------- */

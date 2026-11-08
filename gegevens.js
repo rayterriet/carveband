@@ -34,13 +34,16 @@ const LEDEN = [
 /* ---------------------------------------------------------
    EIGEN NUMMERS
    Verschijnen als tracklist op de "achterkant van de hoes".
+   Een demo erbij? Zet de mp3 in de map "audio" en schrijf het nummer
+   als blokje: { titel: 'Naam', audio: 'bestand.mp3' }
+   Dan komt er een afspeelknop bij het nummer.
    --------------------------------------------------------- */
 const NUMMERS = [
   'Blood and Wire',
   'Writing Tears',
   'Sunshine',
   'A Soul Full of Blues',
-  'Crossing Borders',
+  { titel: 'Crossing Borders', audio: 'crossing-borders-demo.mp3' },
 ];
 
 /* ---------------------------------------------------------
