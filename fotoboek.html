@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fotoboek, Carve</title>
+<meta name="description" content="Fotoboekjes van optredens van Carve.">
+<meta name="theme-color" content="#110b07">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carve">
+<meta property="og:title" content="Fotoboek, Carve">
+<meta property="og:image" content="https://carveband.nl/img/deelbeeld.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat:wght@600&family=Oswald:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="style.css?v=20261108a">
+</head>
+<body class="fotoboek-pagina">
+
+<header class="balk">
+  <div class="balk-in">
+    <a class="merk" href="./" aria-label="Carve">
+      <img src="img/embleem.png" alt="" width="36" height="36">
+      <span>Carve</span>
+    </a>
+    <nav aria-label="Menu">
+      <a href="./" data-t="terug">Terug naar de site</a>
+      <a href="./#contact" class="nav-boek" data-t="boek">Boeken</a>
+    </nav>
+    <div class="taal" role="group" aria-label="Taal / Language">
+      <button type="button" data-lang="nl" aria-label="Nederlands">NL</button>
+      <button type="button" data-lang="en" aria-label="English">UK</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="boek-kop">
+    <div class="wrap">
+      <p class="label" data-t="label">Fotoboek</p>
+      <h1 class="kop" id="boek-titel">Fotoboek</h1>
+      <p class="boek-meta" id="boek-meta"></p>
+      <p class="boek-intro" id="boek-intro" hidden></p>
+    </div>
+    <div class="strepen" aria-hidden="true"></div>
+  </section>
+
+  <section class="sectie papier boek-blad">
+    <div class="wrap">
+      <div class="album" id="album"></div>
+      <ul class="boeken" id="boeken" hidden></ul>
+      <p class="boek-fotograaf" id="boek-fotograaf" hidden></p>
+      <p class="boek-terug"><a class="knop knop-lijn-donker" href="./#fotos" data-t="alle">Terug naar Carve</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="voet">
+  <div class="wrap voet-in">
+    <img src="img/logo.png" alt="Carve" width="160" height="76">
+    <p data-t="voet">Soul, blues en een vleugje rock.</p>
+  </div>
+</footer>
+
+<dialog class="lichtbak" id="lichtbak">
+  <button class="sluit" id="sluit" type="button" aria-label="Sluiten">×</button>
+  <button class="lb-pijl lb-vorige" id="lb-vorige" type="button" aria-label="Vorige foto">‹</button>
+  <img id="lichtbak-img" alt="">
+  <button class="lb-pijl lb-volgende" id="lb-volgende" type="button" aria-label="Volgende foto">›</button>
+  <p class="lb-onder"><span id="lichtbak-tekst"></span> <span id="lichtbak-tel"></span></p>
+</dialog>
+
+<script src="gegevens.js?v=20261108a"></script>
+<script src="fotoboek.js?v=20261108a"></script>
+</body>
+</html>

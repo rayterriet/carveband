@@ -17,7 +17,8 @@
       TOUR: typeof TOUR !== 'undefined' ? TOUR : [],
       VIDEOS: typeof VIDEOS !== 'undefined' ? VIDEOS : [],
       FOTOS: typeof FOTOS !== 'undefined' ? FOTOS : [],
-      RIDERS: typeof RIDERS !== 'undefined' ? RIDERS : []
+      RIDERS: typeof RIDERS !== 'undefined' ? RIDERS : [],
+      FOTOBOEKEN: typeof FOTOBOEKEN !== 'undefined' ? FOTOBOEKEN : []
     };
     return g[naam] || [];
   }
@@ -50,6 +51,7 @@
       'video.leeg': 'De eerste beelden van het nieuwe werk komen hier te staan.',
       'video.speel': 'Speel video af: ',
       'fotos.label': "Foto's", 'fotos.kop': 'Op het podium', 'fotos.vergroot': 'Vergroot: ', 'vorige': 'Vorige foto', 'volgende': 'Volgende foto',
+      'boeken.label': 'Fotoboekjes', 'boeken.intro': "Per optreden alle foto's op een rij.", 'boeken.fotos': "foto's", 'boeken.open': 'Bekijk fotoboek',
       'riders.kop': 'Voor organisatoren',
       'riders.intro': 'Voor organisatoren en technici. Staat er iets niet bij of heb je een vraag over de techniek? Mail ons gerust.',
       'riders.download': 'Download PDF', 'riders.aanvraag': 'Op aanvraag',
@@ -88,6 +90,7 @@
       'video.leeg': 'The first footage of the new songs will appear here.',
       'video.speel': 'Play video: ',
       'fotos.label': 'Photos', 'fotos.kop': 'On stage', 'fotos.vergroot': 'Enlarge: ', 'vorige': 'Previous photo', 'volgende': 'Next photo',
+      'boeken.label': 'Photo books', 'boeken.intro': 'All the photos from each show, in one place.', 'boeken.fotos': 'photos', 'boeken.open': 'View photo book',
       'riders.kop': 'For promoters',
       'riders.intro': 'For promoters and technicians. Missing something, or got a question about the tech? Just drop us a line.',
       'riders.download': 'Download PDF', 'riders.aanvraag': 'On request',
@@ -297,6 +300,31 @@
   $('sluit').addEventListener('click', function () { lb.close ? lb.close() : lb.removeAttribute('open'); });
   lb.addEventListener('click', function (e) { if (e.target === lb && lb.close) lb.close(); });
 
+  /* ---------- Fotoboekjes ---------- */
+  function fotoboeken() {
+    var ul = $('boeken-lijst'); ul.replaceChildren();
+    var M = T('maanden');
+    var b = lijst('FOTOBOEKEN').filter(function (x) { return x && x.id && x.map; })
+      .sort(function (a, c) { return String(c.datum || '').localeCompare(String(a.datum || '')); });
+    b.forEach(function (x) {
+      var li = el('li', 'boekje');
+      var a = el('a'); a.href = 'fotoboek.html?boek=' + encodeURIComponent(x.id);
+      a.setAttribute('aria-label', T('boeken.open') + ': ' + (V(x, 'titel') || x.plaats));
+      var omslag = x.omslag || ((x.fotos || [])[0] || {}).bestand;
+      if (omslag) {
+        var img = el('img'); img.src = 'fotoboek/' + x.map + '/klein/' + omslag; img.alt = ''; img.loading = 'lazy';
+        a.appendChild(img);
+      }
+      var t = el('span', 'boekje-tekst');
+      t.appendChild(el('span', 'boekje-titel', V(x, 'titel') || x.plaats));
+      var meta = '';
+      if (x.datum) { var d = datum(x.datum); meta = d.getDate() + ' ' + M[d.getMonth()] + ' ' + d.getFullYear() + '  ·  '; }
+      t.appendChild(el('span', 'boekje-meta', meta + (x.fotos || []).length + ' ' + T('boeken.fotos')));
+      a.appendChild(t); li.appendChild(a); ul.appendChild(li);
+    });
+    $('fotoboekjes').hidden = b.length === 0;
+  }
+
   /* ---------- Riders ---------- */
   function riders() {
     $('riders-lijst').replaceChildren();
@@ -344,7 +372,7 @@
   });
 
   /* ---------- Alles tekenen, en opnieuw bij taalwissel ---------- */
-  function teken() { vasteTeksten(); band(); nummers(); tour(); video(); fotos(); riders(); }
+  function teken() { vasteTeksten(); band(); nummers(); tour(); video(); fotos(); fotoboeken(); riders(); }
   document.querySelectorAll('[data-lang]').forEach(function (b) {
     b.addEventListener('click', function () {
       if (b.dataset.lang === taal) return;

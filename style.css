@@ -256,6 +256,53 @@ figcaption { font-size: 15px; font-style: italic; margin-top: 8px; }
 .lb-pijl:hover { background: var(--goud); color: var(--espresso); }
 .sluit { position: absolute; top: 6px; right: 10px; border: 0; background: var(--goud); color: var(--espresso); width: 34px; height: 34px; border-radius: 50%; font-size: 22px; cursor: pointer; }
 
+/* ---------- Fotoboekjes ---------- */
+.fotoboekjes { margin-top: clamp(40px, 6vw, 64px); }
+.fotoboekjes-intro { margin: 0 0 22px; color: var(--creme-2); font-style: italic; }
+.boeken { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 26px; }
+.boekje a {
+  display: block; text-decoration: none; color: var(--inkt); background: #fff8ea; padding: 12px 12px 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .45); rotate: -1.5deg; transition: rotate .25s, transform .25s;
+}
+.boekje:nth-child(even) a { rotate: 1.5deg; }
+.boekje a:hover, .boekje a:focus-visible { rotate: 0deg; transform: translateY(-4px); }
+.boekje a:focus-visible { outline: 3px solid var(--goud); outline-offset: 4px; }
+.boekje img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; filter: sepia(.12) saturate(1.05); }
+.boekje-tekst { display: flex; flex-direction: column; padding-top: 12px; }
+.boekje-titel { font: 600 30px/1.05 'Caveat', cursive; color: var(--bordeaux); }
+.boekje-meta { font: 500 12px var(--label); letter-spacing: .16em; text-transform: uppercase; color: var(--oranje); margin-top: 4px; }
+
+/* Fotoboekpagina */
+.fotoboek-pagina .balk-in nav a:not(.nav-boek) { display: inline-block; }
+@media (max-width: 520px) { .fotoboek-pagina .merk span { display: inline; font-size: 20px; } .fotoboek-pagina .balk-in nav a:not(.nav-boek) { display: none; } }
+.boek-kop { position: relative; background: radial-gradient(ellipse at 50% 0%, #5a2e15, var(--espresso) 70%); text-align: center; padding: clamp(48px, 8vw, 90px) 0 0; overflow: hidden; }
+.boek-kop::after { content: ''; position: absolute; inset: 0; background: var(--korrel); opacity: .35; pointer-events: none; mix-blend-mode: multiply; }
+.boek-kop .label { color: var(--goud); }
+.boek-kop .kop { color: var(--creme); font-size: clamp(44px, 8vw, 92px); margin-bottom: 14px; }
+.boek-meta { font: 500 14px var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--goud-licht); margin: 0 0 14px; }
+.boek-intro { max-width: 600px; margin: 0 auto; font-style: italic; color: var(--creme-2); font-size: 18px; }
+.boek-kop .wrap { padding-bottom: clamp(40px, 6vw, 70px); }
+.boek-blad .boeken .boekje a { background: #fff; }
+.album { display: flex; gap: 22px; align-items: flex-start; }
+.album-kolom { flex: 1; min-width: 0; }
+.album-foto {
+  display: block; width: 100%; margin: 0 0 22px; padding: 10px 10px 12px; border: 0; cursor: zoom-in;
+  background: #fff8ea; box-shadow: 0 10px 22px rgba(42, 28, 18, .3); outline: 1px solid rgba(122, 35, 24, .25);
+  rotate: -.6deg; transition: rotate .25s, transform .25s, box-shadow .25s;
+}
+.album-foto:nth-child(3n+2) { rotate: .7deg; }
+.album-foto:nth-child(3n) { rotate: -.2deg; }
+.album-foto:hover, .album-foto:focus-visible { rotate: 0deg; transform: translateY(-3px); box-shadow: 0 16px 30px rgba(42, 28, 18, .4); }
+.album-foto:focus-visible { outline: 3px solid var(--oranje); }
+.album-foto img { width: 100%; height: auto; background: var(--bruin); }
+.album-onder { display: block; font: 600 22px 'Caveat', cursive; color: var(--inkt); padding-top: 6px; text-align: left; }
+.boek-fotograaf { text-align: center; font: 600 26px 'Caveat', cursive; color: var(--bordeaux); margin: 10px 0 0; }
+.boek-terug { text-align: center; margin: 34px 0 0; }
+.knop-lijn-donker { display: inline-block; border: 2px solid var(--bordeaux); color: var(--bordeaux); }
+.knop-lijn-donker:hover { background: var(--bordeaux); color: var(--creme); }
+@media (prefers-reduced-motion: reduce) { .album-foto, .boekje a { rotate: 0deg !important; transition: none; } }
+@media (max-width: 520px) { .album { gap: 14px; } .album-foto { margin-bottom: 14px; padding: 6px 6px 8px; } }
+
 /* ---------- Mobiel ---------- */
 @media (max-width: 860px) {
   nav a:not(.nav-boek) { display: none; }

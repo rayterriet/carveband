@@ -96,6 +96,50 @@ const FOTOS = [
 ];
 
 /* ---------------------------------------------------------
+   FOTOBOEKJES (een eigen pagina per optreden)
+   Zet de foto's in een eigen map onder "fotoboek", bijvoorbeeld
+   fotoboek/ommen-2026-11-02/ , met een kleinere versie van elke
+   foto in de submap "klein" (voor het overzicht).
+   id: kort woord voor in de link, bijvoorbeeld fotoboek.html?boek=ommen-2026
+   omslag: de foto die op de hoofdpagina als voorkant verschijnt.
+   b en h (breedte en hoogte in pixels) mag je weglaten.
+   onderschrift (mag je per foto toevoegen): tekst bij het vergroten.
+   Het nieuwste fotoboekje komt vanzelf vooraan te staan.
+   --------------------------------------------------------- */
+const FOTOBOEKEN = [
+  {
+    id: 'ommen-2026',
+    titel: 'Live in Ommen',
+    datum: '2026-11-02',
+    plaats: 'Ommen',
+    map: 'ommen-2026-11-02',
+    omslag: 'ommen-01.jpg',
+    fotograaf: 'Patries',
+    tekst: 'Een avond vol soul en blues, vastgelegd door Patries.',
+    tekst_en: 'A night full of soul and blues, captured by Patries.',
+    fotos: [
+      { bestand: 'ommen-01.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-02.jpg', b: 1080, h: 1620 },
+      { bestand: 'ommen-03.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-04.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-05.jpg', b: 1080, h: 1620 },
+      { bestand: 'ommen-06.jpg', b: 1080, h: 1620 },
+      { bestand: 'ommen-07.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-08.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-09.jpg', b: 1080, h: 1620 },
+      { bestand: 'ommen-10.jpg', b: 1080, h: 1350 },
+      { bestand: 'ommen-11.jpg', b: 1080, h: 1620 },
+      { bestand: 'ommen-12.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-13.jpg', b: 1080, h: 1350 },
+      { bestand: 'ommen-14.jpg', b: 1080, h: 1350 },
+      { bestand: 'ommen-15.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-16.jpg', b: 1620, h: 1080 },
+      { bestand: 'ommen-17.jpg', b: 1620, h: 1080 },
+    ],
+  },
+];
+
+/* ---------------------------------------------------------
    RIDERS
    Zet de PDF's in de map "riders" en vul de bestandsnaam in.
    Leeg laten ('') betekent: "op aanvraag".

@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://carveband.nl/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://carveband.nl/fotoboek.html?boek=ommen-2026</loc>
+    <lastmod>2026-11-08</lastmod>
   </url>
 </urlset>
