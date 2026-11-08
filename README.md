@@ -8,7 +8,7 @@ Bijna alles staat in **`gegevens.js`**: de band, de eigen nummers, de optredens,
 
 Op GitHub: open `gegevens.js`, klik op het potloodje, pas iets aan en klik op **Commit changes**.
 
-- **Optreden toevoegen:** zet een regel in `TOUR`, met de datum als `'JJJJ-MM-DD'`. Optredens in het verleden verhuizen vanzelf naar "Eerder gespeeld". Met `akoestisch: true` krijgt een optreden het label "Akoestisch".
+- **Optreden toevoegen:** zet een regel in `TOUR`, met de datum als `'JJJJ-MM-DD'`. Optredens in het verleden verhuizen vanzelf naar "Eerder gespeeld". Met `akoestisch: true` krijgt een optreden het label "Akoestisch". Met `fotoboek: '<id>'` komt er een knop naar het fotoboekje bij.
 - **Nummer toevoegen of weghalen:** pas de lijst `NUMMERS` aan. De site verdeelt de nummers zelf over kant A en kant B.
 - **Video toevoegen:** neem het id uit de YouTube-link (het stukje na `v=`).
 - **Foto's:** zet ze in de map `fotos` en noem ze in `FOTOS`.

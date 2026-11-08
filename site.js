@@ -46,7 +46,7 @@
       'live.leeg': 'Nieuwe data volgen binnenkort. Jullie podium erbij? <a href="#contact">Neem contact op</a>.',
       'live.eerder': 'Eerder gespeeld',
       'uur': ' uur',
-      'chip.uitverkocht': 'Uitverkocht', 'chip.gratis': 'Gratis', 'chip.besloten': 'Besloten', 'chip.tickets': 'Tickets', 'chip.akoestisch': 'Akoestisch',
+      'chip.uitverkocht': 'Uitverkocht', 'chip.gratis': 'Gratis', 'chip.besloten': 'Besloten', 'chip.tickets': 'Tickets', 'chip.akoestisch': 'Akoestisch', 'chip.fotos': "Foto's",
       'video.kop': 'Op beeld',
       'video.leeg': 'De eerste beelden van het nieuwe werk komen hier te staan.',
       'video.speel': 'Speel video af: ',
@@ -85,7 +85,7 @@
       'live.leeg': 'New dates coming soon. Want us at your venue? <a href="#contact">Get in touch</a>.',
       'live.eerder': 'Previous shows',
       'uur': '',
-      'chip.uitverkocht': 'Sold out', 'chip.gratis': 'Free entry', 'chip.besloten': 'Private', 'chip.tickets': 'Tickets', 'chip.akoestisch': 'Acoustic',
+      'chip.uitverkocht': 'Sold out', 'chip.gratis': 'Free entry', 'chip.besloten': 'Private', 'chip.tickets': 'Tickets', 'chip.akoestisch': 'Acoustic', 'chip.fotos': 'Photos',
       'video.kop': 'On screen',
       'video.leeg': 'The first footage of the new songs will appear here.',
       'video.speel': 'Play video: ',
@@ -195,6 +195,11 @@
         actie.appendChild(a);
       } else if (g.status === 'gratis') actie.appendChild(el('span', 'chip chip-zacht', T('chip.gratis')));
       else if (g.status === 'besloten') actie.appendChild(el('span', 'chip chip-zacht', T('chip.besloten')));
+    }
+    if (g.fotoboek) {
+      var fb = el('a', 'chip', T('chip.fotos'));
+      fb.href = 'fotoboek.html?boek=' + encodeURIComponent(g.fotoboek);
+      actie.appendChild(fb);
     }
     if (actie.childNodes.length) li.appendChild(actie);
     return li;

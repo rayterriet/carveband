@@ -50,8 +50,10 @@ const NUMMERS = [
    status (mag je weglaten): 'uitverkocht', 'gratis' of 'besloten'
    tickets (mag je weglaten): link naar de kaartverkoop
    akoestisch: true  -> krijgt het label "Akoestisch"
+   fotoboek (mag je weglaten): het id van een fotoboekje, dan komt er een knop "Foto's" bij
    --------------------------------------------------------- */
 const TOUR = [
+  { datum: '2026-11-02', zaal: 'De Herberg', plaats: 'Ommen', fotoboek: 'ommen-2026' },
   // Nieuw optreden? Haal de // weg en pas de regel aan, bijvoorbeeld:
   // { datum: '2027-03-20', tijd: '21:00', zaal: 'Naam zaal', plaats: 'Apeldoorn', tickets: 'https://...' },
   // { datum: '2027-04-12', zaal: 'Café', plaats: 'Deventer', akoestisch: true, status: 'gratis' },
@@ -111,6 +113,7 @@ const FOTOBOEKEN = [
     id: 'ommen-2026',
     titel: 'Live in Ommen',
     datum: '2026-11-02',
+    zaal: 'De Herberg',
     plaats: 'Ommen',
     map: 'ommen-2026-11-02',
     omslag: 'ommen-01.jpg',
