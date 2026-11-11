@@ -157,4 +157,8 @@ const RIDERS = [
     bestand: 'Carve-technische-rider-2026.pdf' },
   { titel: 'Hospitality rider', titel_en: 'Hospitality rider',
     omschrijving: 'Kleedkamer, catering en parkeren', omschrijving_en: 'Dressing room, catering and parking', bestand: '' },
+  { titel: 'Bio', titel_en: 'Bio',
+    omschrijving: "Biografie met bandfoto's, logo en links. Versie november 2026.",
+    omschrijving_en: 'Biography with band photos, logo and links. Version November 2026 (Dutch).',
+    bestand: 'Carve-bio-2026-11-11.pdf' },
 ];
