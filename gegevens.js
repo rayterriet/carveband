@@ -28,7 +28,7 @@ const LEDEN = [
   { naam: 'Ray', foto: 'portret-ray.jpg', rol: 'Gitaar & keyboard', rol_en: 'Guitar & keyboard' },
   { naam: 'Wouter', foto: 'portret-wouter.jpg', rol: 'Gitaar', rol_en: 'Guitar' },
   { naam: 'Frans', foto: 'portret-frans.jpg', rol: 'Bas', rol_en: 'Bass' },
-  { naam: 'Hans', foto: 'portret-hans-3.jpg', rol: 'Drums', rol_en: 'Drums' },
+  { naam: 'Hans', foto: 'portret-hans-4.jpg', rol: 'Drums', rol_en: 'Drums' },
 ];
 
 /* ---------------------------------------------------------
